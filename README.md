@@ -21,8 +21,8 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1
-- Step 2
+- Download Wireshark on the Windows 10 Virtual Machine 
+- Observe ICMP Traffic
 - Step 3
 - Step 4
 
