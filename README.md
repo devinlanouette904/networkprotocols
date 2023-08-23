@@ -21,6 +21,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
+- Setup resources in Microsoft Azure 
 - Download Wireshark 
 - Observe ICMP Traffic
 - Observe SSH Traffic
