@@ -29,11 +29,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>Actions and Observations</h2>
 
 <p>
-<img width="500" alt="image" src="https://github.com/devinlanouette904/networkprotocols/assets/142081954/6a405ca2-92b8-47e4-aacc-9b795f6fc771"/>
+<img width="500" alt="image" src="https://github.com/devinlanouette904/networkprotocols/assets/142081954/2ccd0b3f-55c6-4fdc-a149-fa34c68b7708">
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+First, to observe a few network protocols between the two virtual machines, I installed and opened Wireshark on the Windows 10 VM. 
 </p>
 <br />
 
