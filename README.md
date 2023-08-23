@@ -21,10 +21,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Download Wireshark on the Windows 10 Virtual Machine 
+- Download Wireshark 
 - Observe ICMP Traffic
-- Step 3
-- Step 4
+- Observe SSH Traffic
+- Observe DHCP Traffic
+- Observe DNS Traffic
 
 <h2>Actions and Observations</h2>
 
@@ -33,22 +34,43 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 </p>
 <p>
-First, to observe a few network protocols between the two virtual machines, I installed and opened Wireshark on the Windows 10 VM. 
+First, to observe a few network protocols on the virtual machines, I installed and opened Wireshark on the Windows 10 VM. 
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="500" alt="image" src="https://github.com/devinlanouette904/networkprotocols/assets/142081954/7fc47441-07b7-417e-9c03-686f94fb7597">
+  
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next, I filtered for ICMP traffic only, pinged the Ubuntu VM's private IP address within the command prompt on the Windows 10 VM, and observed the traffic.  
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="500" alt="image" src="https://github.com/devinlanouette904/networkprotocols/assets/142081954/e65c3d27-59a1-4387-a426-471ea0dbe8f8">
+
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next, I initiated a perpetual ping from the Windows 10 VM to the Ubuntu VM. After observing the traffic for a while, I opened the Network Security Group of the Ubuntu VM and disabled inbound ICMP traffic. I then observed the traffic in Wireshark again, noticing when the command line request times out, and when there is no longer any reply pings in Wireshark. 
 </p>
 <br />
+<img width="500" alt="image" src="https://github.com/devinlanouette904/networkprotocols/assets/142081954/e9d58e24-225b-411f-9be8-31a4669cdda5">
+
+</p>
+<p>
+Next, I filtered for SSH traffic only (tcp.port == 22). Then, I accessed the Ubuntu VM's command line using SSH from the Windows 10 VM. I entered various commands and observed the traffic within Wireshark.
+</p>
+<br />
+<img width="500" alt="image" src="https://github.com/devinlanouette904/networkprotocols/assets/142081954/eb991378-389c-4573-9839-b165d518b123">
+
+</p>
+<p>
+Next, I filtered for DHCP traffic only (udp.port == 67). Then, I attempted to issue the Windows 10 VM a new IP address using ipconfig /renew in the command line and observed the traffic in Wireshark.
+</p>
+<br />
+<img width="500" alt="image" src="https://github.com/devinlanouette904/networkprotocols/assets/142081954/27b381d6-9a36-4e31-8617-bf025ed78804">
+
+</p>
+<p>
+Next, I filtered for DNS traffic only (udp.port == 53). Then, I used the command nslookup in the command line to find google.com's IP address and observed the traffic within Wireshark.
